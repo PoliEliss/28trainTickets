@@ -1,6 +1,14 @@
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Menu() {
+    val mosscowPiterburg = Train("Москва","Санкт-Питербург",207,"09.00","22.00")
+    val mosscowMurmansk= Train("Москва","Мурманс",208,"07.00","06.00")
+    val mosscowKrasnodar= Train("Москва","Краснодар",201,"09.00","22.00")
+    val mosscowSoci = Train("Москва","Сочи",211,"09.00","22.00")
+    val mosscowRostov= Train("Москва","Ростов",200,"09.00","22.00")
+
+    val listtrain:MutableList <Train> = mutableListOf(mosscowKrasnodar,mosscowMurmansk,mosscowSoci,mosscowRostov,mosscowPiterburg)
     fun glavMenu() {
         println("Выберите необходимый раздел введя число")
         println("1:Купить билет")
@@ -51,3 +59,5 @@ class Menu() {
 
 
 }
+
+
