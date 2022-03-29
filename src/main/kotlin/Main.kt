@@ -12,7 +12,6 @@ fun main(args: Array<String>) {
     townList.add(Town("Krasnodar"))
 
     //тут нужно запустить функцию fun glavMenu() класса Меню
-
 }
 
 

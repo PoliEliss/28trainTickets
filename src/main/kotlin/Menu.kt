@@ -30,15 +30,21 @@ class Menu() {
     }
 
     fun shopTicket() {
+
+        //listtrain  start end
+
+
+
+
         println("Введите ФИО")
-        var fio = scanner.nextLine()
-        var fioArray: List<String> =  fio.split(" ")
+        val fio = scanner.nextLine()
+        val fioArray: List<String> =  fio.split(" ")
 
         println("Введите год рождения в форате 02.02.1990")
-        var age = scanner.nextLine()
+        val age = scanner.nextLine()
 
         val ticket:Ticket = Ticket(fioArray[0],fioArray[1],fioArray[2],age)
-        var r=2
+
 
 
     }
