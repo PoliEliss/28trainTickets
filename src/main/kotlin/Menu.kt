@@ -38,7 +38,7 @@ class Menu() {
         var age = scanner.nextLine()
 
         val ticket:Ticket = Ticket(fioArray[0],fioArray[1],fioArray[2],age)
-
+        var r=2
 
 
     }
