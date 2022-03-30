@@ -48,12 +48,31 @@ class Menu() {
                 val fioArray: List<String> = fio.split(" ")
                 println("Введите год рождения в форате 02.02.1990")
                 val age = scanner.nextLine()
+
+                println("Список доступных мест")
+                it.placesDostup2()
+                println()
+
+                while (true) {
+                    println("Введите номер место для бронирования")
+                    if (scanner.hasNextInt()){
+                        val places = scanner.nextInt()
+                        it.bron(places);
+                        break
+                    }else{
+                        println("Вы ввели не номер")
+                    }
+
+                }
+
                 val ticket = Ticket(fioArray[0], fioArray[1], fioArray[2], age)
                 println("Билет приобретен")
+                mainMenu()
                 return
             }
+            println("Не найдено")
         }
-        println("Не найдено")
+
     }
 }
 
