@@ -1,3 +1,1 @@
-class Town (val name : String) {
-
-}
+class Town (val name : String)

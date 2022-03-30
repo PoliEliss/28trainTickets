@@ -1,15 +1,15 @@
 import java.util.*
-import kotlin.collections.ArrayList
 
 class Menu() {
-    val mosscowPiterburg = Train("Москва","Санкт-Питербург",207,"09.00","22.00")
-    val mosscowMurmansk= Train("Москва","Мурманс",208,"07.00","06.00")
-    val mosscowKrasnodar= Train("Москва","Краснодар",201,"09.00","22.00")
-    val mosscowSoci = Train("Москва","Сочи",211,"09.00","22.00")
-    val mosscowRostov= Train("Москва","Ростов",200,"09.00","22.00")
+    val mosscowPiterburg = Train("Москва", "Санкт-Питербург", 207, "09.00", "22.00")
+    val mosscowMurmansk = Train("Москва", "Мурманс", 208, "07.00", "06.00")
+    val mosscowKrasnodar = Train("Москва", "Краснодар", 201, "09.00", "22.00")
+    val mosscowSoci = Train("Москва", "Сочи", 211, "09.00", "22.00")
+    val mosscowRostov = Train("Москва", "Ростов", 200, "09.00", "22.00")
 
-    val listtrain:MutableList <Train> = mutableListOf(mosscowKrasnodar,mosscowMurmansk,mosscowSoci,mosscowRostov,mosscowPiterburg)
-    fun glavMenu() {
+    private val listtrain: MutableList<Train> =
+        mutableListOf(mosscowKrasnodar, mosscowMurmansk, mosscowSoci, mosscowRostov, mosscowPiterburg)
+    fun mainMenu() {
         println("Выберите необходимый раздел введя число")
         println("1:Купить билет")
         println("2:Обменять билет")
@@ -17,47 +17,44 @@ class Menu() {
             val numberAnswer = scanner.nextInt()
             if (numberAnswer == 1) {
                 shopTicket()
-            }else if (numberAnswer==2){
+            } else if (numberAnswer == 2) {
                 returnTicket()
             }
         } else {
-            println("вы ввели не число . Начните сначало")
-            glavMenu()
+            println("вы ввели не число. Начните сначала")
+            mainMenu()
         }
-
     }
 
     fun returnTicket() {
         val scanner = Scanner(System.`in`)
         println("Введите номер билета для возврата")
         val numberAnswer = scanner.nextLine()
-
         if (numberAnswer != null && numberAnswer != "") {
             println("Ваше заявление будет расмотрено. Мы вернем деньги в течение 10 рабочих л")
         }
     }
 
     fun shopTicket() {
-
-        //listtrain  start end
-
-
-
-
-        println("Введите ФИО")
-        val fio = scanner.nextLine()
-        val fioArray: List<String> =  fio.split(" ")
-
-        println("Введите год рождения в форате 02.02.1990")
-        val age = scanner.nextLine()
-
-        val ticket:Ticket = Ticket(fioArray[0],fioArray[1],fioArray[2],age)
-
-
-
+        val scanner = Scanner(System.`in`)
+        println("Введите город отправления")
+        val townStart = scanner.nextLine()
+        println("Введите город прибытия")
+        val townEnd = scanner.nextLine()
+        listtrain.forEach() {
+            if (it.start == townStart && it.end == townEnd) {
+                println("Введите ФИО")
+                val fio = scanner.nextLine()
+                val fioArray: List<String> = fio.split(" ")
+                println("Введите год рождения в форате 02.02.1990")
+                val age = scanner.nextLine()
+                val ticket = Ticket(fioArray[0], fioArray[1], fioArray[2], age)
+                println("Билет приобретен")
+                return
+            }
+        }
+        println("Не найдено")
     }
-
-
 }
 
 
