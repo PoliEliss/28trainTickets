@@ -58,9 +58,9 @@ class Menu() {
                 val ageProverka: List<String> = age.split(".") // массив получился
 
                 val day = ageProverka[0].toInt()
-                val m = ageProverka[1].toInt()
-                val j = ageProverka[2].toInt()
-                if (day > 0 && day <= 31 && m > 0 && m <= 12 && j >= 1800) {
+                val month = ageProverka[1].toInt()
+                val year = ageProverka[2].toInt()
+                if (day > 0 && day <= 31 && month > 0 && month <= 12 && year >= 1800 ) {
                     println("Список доступных мест")
                     it.placesDostup2()
                     println()
@@ -90,10 +90,10 @@ class Menu() {
 
 
             }
-
+            println("Не найдено")
 
         }
-        println("Не найдено")
+
     }
 }
 
