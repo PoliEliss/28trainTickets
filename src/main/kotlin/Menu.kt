@@ -1,4 +1,6 @@
+import java.awt.Color
 import java.util.*
+import kotlin.math.sign
 
 class Menu() {
     val mosscowPiterburg = Train("Москва", "Санкт-Питербург", 207, "09.00", "22.00")
@@ -6,12 +8,15 @@ class Menu() {
     val mosscowKrasnodar = Train("Москва", "Краснодар", 201, "09.00", "22.00")
     val mosscowSoci = Train("Москва", "Сочи", 211, "09.00", "22.00")
     val mosscowRostov = Train("Москва", "Ростов", 200, "09.00", "22.00")
+    val mosscowPskov = Train("Москва", "Псков", 200, "09.00", "22.00")
 
     private val listtrain: MutableList<Train> =
-        mutableListOf(mosscowKrasnodar, mosscowMurmansk, mosscowSoci, mosscowRostov, mosscowPiterburg)
+        mutableListOf(mosscowKrasnodar, mosscowMurmansk, mosscowSoci, mosscowRostov, mosscowPiterburg,mosscowPskov)
 
     fun mainMenu() {
+
         println("Выберите необходимый раздел введя число")
+        println( "\u001B[33m"+" Внимание!!! Появились рейсы в Псков "+"\u001B[0m" )
         println("1:Купить билет")
         println("2:Обменять билет")
         if (scanner.hasNextInt()) {
@@ -49,9 +54,42 @@ class Menu() {
             val scanner = Scanner(System.`in`)
             val p = scanner.nextLine()
             age(p)
+        } else {
+            println("Введите дату еще раз")
+            val p = scanner.nextLine()
+            age(p)
         }
         return test
 
+    }
+
+
+    fun fio(): List<String> {
+        val scanner1 = Scanner(System.`in`)
+        println("Введите ФИО")
+        val e: Boolean = scanner1.hasNextInt()
+        if (!e) {
+
+
+            val fio2 = scanner1.nextLine()
+            val fioArray: List<String> = fio2.split(" ")
+
+            if (fioArray[0].length > 2 && fioArray[1].length > 2 && fioArray[2].length > 2) {
+
+                return fioArray
+            } else {
+                fio()
+                val list: List<String> = listOf()
+                return list
+            }
+        } else {
+            println("Вы ввели число вместо ФИО")
+            scanner1.next()
+            fio()
+
+            val list: List<String> = listOf()
+            return list
+        }
     }
 
     fun shopTicket() {
@@ -62,14 +100,15 @@ class Menu() {
         val townEnd = scanner.nextLine()
         listtrain.forEach() {
             if (it.start == townStart && it.end == townEnd) {
-                println("Введите ФИО")
-                val fio = scanner.nextLine()
 
-                val fioArray: List<String> = fio.split(" ")
+                //println("Введите ФИО")
+                //  val s = scanner.nextLine()
+                val fioArray: List<String> = fio()
+
                 println("Введите год рождения в формате 02.02.1990")
-
                 val p = scanner.nextLine()
-                age(p)
+
+                val age = age(p)
 
                 println("Список доступных мест")
                 it.placesDostup2()
@@ -87,7 +126,7 @@ class Menu() {
 
                 }
                 println("Билет приобретен")
-                //val ticket = Ticket(fioArray[0], fioArray[1], fioArray[2], age)
+                val ticket = Ticket(fioArray[0], fioArray[1], fioArray[2], age)
                 mainMenu()
                 return
             }
@@ -99,5 +138,7 @@ class Menu() {
     }
 
 }
+
+
 
 
