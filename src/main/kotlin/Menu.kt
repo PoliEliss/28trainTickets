@@ -36,7 +36,21 @@ class Menu() {
         }
     }
 
-    fun age(){
+    fun age(test: String): String {
+
+
+        val ageProverka: List<String> = test.split(".") // массив получился
+
+        val day = ageProverka[0].toInt()
+        val month = ageProverka[1].toInt()
+        val year = ageProverka[2].toInt()
+        if (!(day > 0 && day <= 31 && month > 0 && month <= 12 && year >= 1800)) {
+            println("Введите верную дату")
+            val scanner = Scanner(System.`in`)
+            val p = scanner.nextLine()
+            age(p)
+        }
+        return test
 
     }
 
@@ -52,49 +66,38 @@ class Menu() {
                 val fio = scanner.nextLine()
 
                 val fioArray: List<String> = fio.split(" ")
-                println("Введите год рождения в форате 02.02.1990")
+                println("Введите год рождения в формате 02.02.1990")
 
-                val age = scanner.nextLine()
-                val ageProverka: List<String> = age.split(".") // массив получился
+                val p = scanner.nextLine()
+                age(p)
 
-                val day = ageProverka[0].toInt()
-                val month = ageProverka[1].toInt()
-                val year = ageProverka[2].toInt()
-                if (day > 0 && day <= 31 && month > 0 && month <= 12 && year >= 1800 ) {
-                    println("Список доступных мест")
-                    it.placesDostup2()
-                    println()
+                println("Список доступных мест")
+                it.placesDostup2()
+                println()
 
-                    while (true) {
-                        println("Введите номер место для бронирования")
-                        if (scanner.hasNextInt()) {
-                            val places = scanner.nextInt()
-                            it.bron(places)
-                            break
-                        } else {
-                            println("Вы ввели не номер")
-                        }
-
+                while (true) {
+                    println("Введите номер место для бронирования")
+                    if (scanner.hasNextInt()) {
+                        val places = scanner.nextInt()
+                        it.bron(places)
+                        break
+                    } else {
+                        println("Вы ввели не номер")
                     }
 
-
-                    println("Билет приобретен")
-                    //val ticket = Ticket(fioArray[0], fioArray[1], fioArray[2], age)
-                    mainMenu()
-                    return
-
-                } else {
-                    println("Введите корректно дату в формате 02.02.1990")
-
                 }
-
-
+                println("Билет приобретен")
+                //val ticket = Ticket(fioArray[0], fioArray[1], fioArray[2], age)
+                mainMenu()
+                return
             }
 
 
         }
+
         println("Не найдено")
     }
+
 }
 
 
