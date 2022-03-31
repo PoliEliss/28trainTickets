@@ -21,7 +21,7 @@ class Menu() {
         println("2:Обменять билет")
         if (scanner.hasNextInt()) {
             val numberAnswer = scanner.nextInt()
-            if (numberAnswer == 1) {
+            if (numberAnswer == 1)        {
                 shopTicket()
             } else if (numberAnswer == 2) {
                 returnTicket()
