@@ -52,7 +52,7 @@ class Menu() {
             val p = scanner.nextLine()
             age(p)
         }
-        return test
+        return   test
 
     }
 
