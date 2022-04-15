@@ -40,10 +40,7 @@ class Menu() {
             println("Ваше заявление будет расмотрено. Мы вернем деньги в течение 10 рабочих л")
         }
     }
-
     fun age(test: String): String {
-
-
         val ageProverka: List<String> = test.split(".") // массив получился
 
         val day = ageProverka[0].toInt()
@@ -54,14 +51,11 @@ class Menu() {
             val scanner = Scanner(System.`in`)
             val p = scanner.nextLine()
             age(p)
-        } else {
-            println("Введите дату еще раз")
-            val p = scanner.nextLine()
-            age(p)
         }
         return test
 
     }
+
 
 
     fun fio(): List<String> {
